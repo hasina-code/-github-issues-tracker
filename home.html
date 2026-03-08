@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | GitHub Issues Tracker</title>
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- tailwind + daisyui  -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      font-family: "Geist", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-base-200 flex items-center justify-center h-screen">
+  <div class="card w-full max-w-sm bg-base-100 shadow-xl text-center p-6">
+    <figure><img src="./assets/github-logo.png" class="w-16 mx-auto mb-4"></figure>
+    <h1 class="text-2xl font-bold mb-1">GitHub Issues Tracker</h1>
+    <p class="text-gray-500 mb-6">Sign in to manage your issues</p>
+    <label class="label text-neutral font-bold">Username</label>
+    <input id="username" type="text" placeholder="Enter Username" class="input input-bordered w-full mb-3" />
+    <p class="label text-purple-400 text-sm  mb-4">Default: admin</p>
+    <label class="label text-neutral font-bold">Password</label>
+    <input id="password" type="password" placeholder="Enter Password" class="input input-bordered w-full mb-3" />
+    <p class="label text-purple-400 text-sm  mb-4">Default: admin123</p>
+    <label class="label text-neutral font-bold">Default: admin123</label>
+  <button id="loginBtn" class="btn btn-primary mt-4">Sign In</button>
+
+  <p class="text-sm text-gray-500 mt-2"></p>
+  <div class="divider">OR</div>
+  <p class="text-gray-500 mb-2">Demo Credentials:</p>
+  <div class="bg-gray-100 p-4 rounded text-sm text-center">
+    <p><strong>Username:</strong> admin</p>
+    <p><strong>Password:</strong> admin123</p>
+  </div>
+  </div>
+</body>
+
+</html>
