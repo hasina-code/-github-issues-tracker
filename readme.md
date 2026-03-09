@@ -2,58 +2,58 @@
 
 1️⃣ What is the difference between var, let, and const?
 
-### var:
+# 1. var:
 
-# 1. Scope:
+# Scope:
 
-    .var is function-scoped, meaning it is limited to the function it is declared in.
-    .Even if declared inside a block (like if or for), it can be accessed outside the block.
+    1. var is function-scoped, meaning it is limited to the function it is declared in.
+    1. Even if declared inside a block (like if or for), it can be accessed outside the block.
 
-# 2. Reassignable:
+# Reassignable:
 
-    .Variables declared with var can be reassigned.
+    1.Variables declared with var can be reassigned.
 
-# 3. Hoisting:
+# Hoisting:
 
-    .var variables are hoisted to the top of the function.
-    .If a value is assigned later, it shows undefined before assignment.
+    1.var variables are hoisted to the top of the function.
+    1.If a value is assigned later, it shows undefined before assignment.
 
-### let
+# 2. let
 
-# 1. Scope:
+# Scope:
 
-.let is block-scoped, meaning it is limited to the {} block where it is declared.
-.Using it outside the block throws a ReferenceError.
+1.  let is block-scoped, meaning it is limited to the {} block where it is declared.
+2.  Using it outside the block throws a ReferenceError.
 
-# 2. Reassignable:
+# Reassignable:
 
-.Variables declared with let can be reassigned later.
+1.Variables declared with let can be reassigned later.
 
-# 3. Hoisting:
+# Hoisting:
 
-.let is hoisted but must be declared before use.
-.It has a Temporal Dead Zone (TDZ), so using it before declaration causes an error.
+1.let is hoisted but must be declared before use.
+2.It has a Temporal Dead Zone (TDZ), so using it before declaration causes an error.
 
-### const
+## 3. const
 
-# 1. Scope:
+# Scope:
 
-.const is also block-scoped, limited to the {} block where it is declared.
+1.const is also block-scoped, limited to the {} block where it is declared.
 
-# 2. Reassignable:
+# Reassignable:
 
-.Cannot reassign a const variable.
-.Once a value is assigned, it cannot be changed.
+1.Cannot reassign a const variable.
+2.Once a value is assigned, it cannot be changed.
 
-# 3. Hoisting:
+# Hoisting:
 
-.const is hoisted but has a TDZ.
-.Must be declared before using the variable.
+1.const is hoisted but has a TDZ.
+2.Must be declared before using the variable.
 
-# 4. Objects and Arrays:
+# Objects and Arrays:
 
-.You cannot reassign the variable itself.
-.But you can modify the contents (like properties of objects or elements of arrays).
+1.You cannot reassign the variable itself.
+2.But you can modify the contents (like properties of objects or elements of arrays).
 
 2️⃣ What is the spread operator (...)?
 
