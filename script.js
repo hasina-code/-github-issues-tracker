@@ -40,7 +40,65 @@ const displayIssues = (issues) => {
     return;
   }
 
+  issues.forEach(issue => {
+    // Top border color based on status
+    const borderClass = issue.status === "open" ? "border-green-500" : "border-purple-500";
+    const statusIcon = issue.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed-Status.png";
 
+    // Priority badge
+    let priorityClass = issue.priority.toLowerCase() === "high" ? "bg-red-200 text-red-800"
+                      : issue.priority.toLowerCase() === "medium" ? "bg-yellow-200 text-yellow-700"
+                      : "bg-gray-200 text-gray-700";
+
+    // Labels
+    const labelsHTML = issue.labels.map(label => {
+      let labelClass = "bg-yellow-200 text-yellow-700";
+      switch (label.toLowerCase()) {
+        case "bug": labelClass = "bg-red-200 text-red-700"; break;
+        case "help wanted": labelClass = "bg-blue-200 text-blue-700"; break;
+        case "enhancement": labelClass = "bg-green-200 text-green-700"; break;
+        case "good first issue": labelClass = "bg-purple-200 text-purple-700"; break;
+      }
+      return `<span class="px-2 py-1 rounded-full text-xs font-semibold ${labelClass}">${label.toUpperCase()}</span>`;
+    }).join(" ");
+
+    // Create card
+    const card = document.createElement("div");
+    card.className = `bg-white p-5 rounded-lg shadow hover:shadow-lg transition border-t-4 ${borderClass}`;
+    card.innerHTML = `
+      <div class="flex justify-between items-center mb-3">
+        <!-- Status icon left top -->
+        <div class="flex items-center gap-2">
+          <img src="${statusIcon}" class="w-7 h-7" alt="status">
+        </div>
+
+        <!-- Priority badge right top -->
+        <span onclick="loadIssueDetails(${issue.id})" class="px-3 py-1 rounded-full text-xs font-semibold cursor-pointer ${priorityClass}">
+          ${issue.priority.toUpperCase()}
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h3 onclick="loadIssueDetails(${issue.id})" class="font-bold text-lg cursor-pointer hover:text-blue-500 mb-2">
+        ${issue.title}
+      </h3>
+
+      <!-- Description -->
+      <p class="text-gray-600 text-sm line-clamp-2 mb-2">${issue.description}</p>
+
+      <!-- Labels -->
+      <div class="flex gap-2 flex-wrap mb-2">${labelsHTML}</div>
+
+      <hr class="border-gray-100 mt-2">
+
+      <!-- Author & Date -->
+      <div onclick="loadIssueDetails(${issue.id})" class="mt-2 text-sm text-gray-600">
+        <p><span class="font-semibold">Author:</span> ${issue.author}</p>
+        <p>${new Date(issue.createdAt).toLocaleDateString()}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
 };
 
 // Update Issue Count
