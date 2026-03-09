@@ -138,7 +138,13 @@ const setActiveTab = (tabId) => {
   activeBtn.classList.remove("btn-outline");
 };
 
-
+// Search
+document.getElementById("search-input").addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase();
+  const filtered = allIssues.filter(issue => issue.title.toLowerCase().includes(query));
+  displayIssues(filtered);
+  updateIssueCount(filtered);
+});
 
 // Initialize
 setupTabs();
