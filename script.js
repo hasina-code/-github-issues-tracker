@@ -11,7 +11,24 @@ const hideLoader = () => {
   document.getElementById("loader").style.display = "none";
 };
 
-
+// Load issues from API
+const loadIssues = () => {
+  console.log("Fetching issues");
+  showLoader();
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then(res => res.json())
+    .then(data => {
+    // console.log("API Data:", data);
+      allIssues = data.data;
+      hideLoader();
+      displayIssues(allIssues);
+      updateIssueCount(allIssues);
+    })
+    .catch(err => {
+      console.error("Fetch Error:", err);
+      hideLoader();
+    });
+};
 
 // Display issues in cards
 const displayIssues = (issues) => {
@@ -62,6 +79,7 @@ const setActiveTab = (tabId) => {
   activeBtn.classList.add("btn-primary");
   activeBtn.classList.remove("btn-outline");
 };
+
 
 
 // Initialize
